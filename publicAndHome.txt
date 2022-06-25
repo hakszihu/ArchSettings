@@ -1,0 +1,43 @@
+Public & home network configuration:
+echo "#\!/bin/bash" >> ~/.config/home.sh
+echo "xfconf-query -c xfce4-notifyd -p /do-not-disturb -s false" >> ~/.config/home.sh
+echo "sudo sed -i '/autologin-user=hakszi/s/^#//g' /etc/lightdm/lightdm.conf" >> ~/.config/home.sh
+echo "sudo systemctl start ufw" >> ~/.config/home.sh
+echo "sudo systemctl enable ufw" >> ~/.config/home.sh
+echo "sudo ufw delete 1" >> ~/.config/home.sh
+echo "sudo ufw delete 1" >> ~/.config/home.sh
+echo "sudo ufw enable" >> ~/.config/home.sh
+echo "sudo ufw allow ssh" >> ~/.config/home.sh
+echo "sudo ufw allow 22" >> ~/.config/home.sh
+echo "sudo ufw logging off" >> ~/.config/home.sh
+echo "sudo ufw default deny incoming" >> ~/.config/home.sh
+echo "sudo ufw default allow outgoing" >> ~/.config/home.sh
+echo "sudo ufw reload" >> ~/.config/home.sh
+echo "echo "--------------------------------"" >> ~/.config/home.sh
+echo "echo "Autologin: enabled" " >> ~/.config/home.sh
+echo "echo "Do not disturb disabled."" >> ~/.config/home.sh
+echo "echo "Port 22 and SSH allowed."" >> ~/.config/home.sh
+echo "echo "Logging: off" " >> ~/.config/home.sh
+echo "echo "All incoming denied."" >> ~/.config/home.sh
+echo "echo "All outgoing allowed."" >> ~/.config/home.sh
+echo "echo "--------------------------------"" >> ~/.config/home.sh
+
+echo "#\!/bin/bash" >> ~/.config/work.sh
+echo "xfconf-query -c xfce4-notifyd -p /do-not-disturb -s true" >> ~/.config/work.sh
+echo "sudo sed -i '/autologin-user=hakszi/s/^/#/g' /etc/lightdm/lightdm.conf" >> ~/.config/work.sh
+echo "sudo ufw delete allow 22" >> ~/.config/work.sh
+echo "sudo ufw enable" >> ~/.config/work.sh
+echo "sudo systemctl enable ufw --now" >> ~/.config/work.sh
+echo "sudo ufw deny ssh/tcp" >> ~/.config/work.sh
+echo "sudo ufw logging on" >> ~/.config/work.sh
+echo "sudo ufw default reject incoming" >> ~/.config/work.sh
+echo "sudo ufw default allow outgoing" >> ~/.config/work.sh
+echo "sudo ufw reload" >> ~/.config/work.sh
+echo "echo "--------------------------------"" >> ~/.config/work.sh
+echo "echo "Autologin: disabled" " >> ~/.config/work.sh
+echo "echo "Do not disturb enabled."" >> ~/.config/work.sh
+echo "echo "Port 22 and SSH/TCP not allowed"" >> ~/.config/work.sh
+echo "echo "Logging: on at /var/log/ufw.log" " >> ~/.config/work.sh
+echo "echo "All incoming rejected"" >> ~/.config/work.sh
+echo "echo "All outgoing allowed"" >> ~/.config/work.sh
+echo "echo "--------------------------------"" >> ~/.config/work.sh
